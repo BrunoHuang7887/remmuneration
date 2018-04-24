@@ -229,11 +229,14 @@ class Remuneration extends CI_Controller {
 
 
                 $data_dispdf["pdf"]=$data['receipt_item'];
+
                 array_push($data_dispdf["pdf"],$id);
+                array_push($data_dispdf["pdf"],'accountant');
                 var_dump($data_dispdf["pdf"]);
                 $this->load->view('templates/header', $data_dispdf);
                 $this->load->view('remuneration/ctmreceipt', $data_dispdf);
                 $this->load->view('templates/footer', $data_dispdf);
+
 
       }
 
@@ -246,6 +249,39 @@ class Remuneration extends CI_Controller {
         $this->load->view('templates/footer', $data);*/
         //header('Location: '.$uri.'/dashboard/');
         //header('Location:/ctmreceipt/'.$id);
+
+
+        $this->load->library('pdf');
+        $objpdf = new pdf();
+
+        $objpdf->pdfpath='remittance.pdf';
+        $objpdf->SetMargins(PDF_MARGIN_LEFT,40, PDF_MARGIN_RIGHT);
+
+        $objpdf->SetAutoPageBreak(true, 40);
+
+        $objpdf->AddPage();
+
+        ini_set('memory_limit', '256M');
+        $font_path = 'ipag00303/SourceHanSansTC-Regular.ttf';
+          if (file_exists($font_path)) {
+            $font_name = $objpdf->addTTFfont($font_path, 'TrueTypeUnicode');
+            $objpdf->SetFont($font_name, 'B', 15);
+          }
+        $objpdf->SetTextColor(0,0,255);
+
+        $objpdf->Text(94,40,$this->input->post('swcode'));
+        $objpdf->Text(108,51,$this->input->post('cnapscode'));
+        $objpdf->Text(64,60.5,$this->input->post('bankbranchname'));
+        $objpdf->Text(64,67,$this->input->post('bankbranchadr'));
+        $objpdf->Text(57,74,$this->input->post('acutnumber'));
+        $objpdf->Text(64,81,$this->input->post('acutusername'));
+        $objpdf->Text(64,89,$this->input->post('acutadr'));
+
+
+        $objpdf->Output("op.pdf","I");
+
+
+        /*
         $filepath = $_SERVER["DOCUMENT_ROOT"]."/remuneration/pdffile_temp/";
 
         $str_ary = explode("_",$id);
@@ -277,9 +313,9 @@ class Remuneration extends CI_Controller {
         $objpdf->Text(50,110,$this->input->post('phone'));
 
         //$objpdf->Output("op.pdf","I");
-
+        */
         /*指定pdf儲存路徑*/
-
+        /*
         $filename = "receipt_".$pdfid.".pdf";
         //$filepath = $_SERVER["DOCUMENT_ROOT"]."/remuneration/pdffile_temp/";
         $filepoint = $filepath."\\".$filename;
@@ -293,7 +329,7 @@ class Remuneration extends CI_Controller {
         $this->load->view('templates/header', $data_dispdf);
         //$this->load->view('remuneration/dispdf', $data_dispdf);
         $this->load->view('templates/footer', $data_dispdf);
-
+        */
       }
 
 
