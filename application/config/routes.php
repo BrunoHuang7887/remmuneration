@@ -53,14 +53,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 //$route['default_controller'] = 'welcome';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
+$route['default_controller'] = 'remuneration';
+$route['formreceipt'] = 'remuneration/formreceipt'; //對應到remuneration Controllers的view function
+$route['confpdf'] = 'remuneration/confpdf/'; //會計填寫簽單內容之路由
+$route['ctmreceipt'] = 'remuneration/ctmreceipt/'; //會計填寫簽單內容之路由
+$route['viewpdf/(:any)'] = 'remuneration/viewpdf/$1';
+$route['ctmreceipt/(:any)'] = 'remuneration/ctmreceipt/$1'; //客戶填寫帳戶及簽單內容之路由
+$route['ctmform/(:any)'] = 'remuneration/ctmform/$1';// 填寫完之頁面(生成pdf檔)
+//$route['(:any)'] = 'remuneration/view/$1';
 
-$route['default_controller'] = 'page/view';
+//$route['remuneration/(:any)'] = 'remuneration/view/$1';
 
-$route['news/create'] = 'news/create';
-$route['news/(:any)'] = 'news/view/$1';
-$route['news'] = 'news';
-$route['(:any)'] = 'pages/view/$1';
-$route['default_controller'] = 'pages/view';
-
-
+//$route['default_controller'] = 'page/view';
+//$route['news'] = 'news';
 //$route['(:any)'] = 'pages/view/$1';
