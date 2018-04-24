@@ -1,0 +1,143 @@
+
+
+table {
+width:50%;
+}
+.table_cas1{
+  width:100%;
+
+}
+table, th, td {
+border: 0px solid;
+border-collapse: collapse;
+}
+th, td {
+padding: 0px;
+text-align: center;
+}
+table#t01 tr:nth-child(even) {
+background-color: #eee;
+}
+table#t01 tr:nth-child(odd) {
+background-color: #fff;
+}
+table#t01 th {
+background-color: black;
+color: white;
+}
+
+.field{
+  border-color: #0080ff;
+  border-style: solid;
+  width:80%;
+  height: 80%;
+  margin:0px auto;
+}
+
+@media(max-width:500px){
+  .field {
+    width:100%;
+  }
+}
+
+
+
+
+
+fieldset {
+  width: 800px;
+  height: 480px;
+	border:12px;
+	padding:10px;
+	margin-bottom:
+	10px;background:#EEE;
+
+	border-radius: 8px;
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;
+
+	background:-webkit-liner-gradient(top,#EEEEEE,#FFFFFF);
+	background:linear-gradient(top,#EFEFEF,#FFFFFF);
+
+	box-shadow:3px 3px 10px #666;
+	-moz-box-shadow:3px 3px 10px #666;
+	-webkit-box-shadow:3px 3px 10px #666;
+  margin: 23px auto;
+	position:relative;
+	}
+
+
+
+
+
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f1f1f1;
+}
+
+
+
+h1 {
+  text-align: center;
+}
+
+input {
+  padding: 10px;
+  width: 100%;
+  font-size: 17px;
+  font-family: Raleway;
+  border: 1px solid #aaaaaa;
+}
+
+/* Mark input boxes that gets an error on validation: */
+input.invalid {
+  background-color: #ffdddd;
+}
+
+/* Hide all steps by default: */
+.tab {
+  display: none;
+}
+
+button {
+  background-color: #4CAF50;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 17px;
+  font-family: Raleway;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+#prevBtn {
+  background-color: #bbbbbb;
+}
+
+/* Make circles that indicate the steps of the form: */
+.step { /*class*/
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #ff8000;
+  border: none;
+  border-radius: 50%;
+  display: inline-block;
+  opacity: 0.3;
+}
+
+.step.active {
+  opacity: 1;
+}
+
+/* Mark the steps that are finished and valid: */
+.step.finish {
+  background-color: #4CAF50;
+}
